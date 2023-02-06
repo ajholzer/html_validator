@@ -1,5 +1,5 @@
 #!/bin/python3
-
+import re
 
 def validate_html(html):
     '''
@@ -29,3 +29,6 @@ def _extract_tags(html):
     >>> _extract_tags('Python <strong>rocks</strong>!')
     ['<strong>', '</strong>']
     '''
+
+    tags = re.findall('<[\/a-z]+>', html)
+    return tags
