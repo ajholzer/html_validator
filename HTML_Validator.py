@@ -1,6 +1,7 @@
 #!/bin/python3
 import re
 
+
 def validate_html(html):
 
     '''
