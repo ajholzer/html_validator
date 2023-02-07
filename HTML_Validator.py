@@ -11,6 +11,27 @@ def validate_html(html):
     False
     '''
 
+    extr = _extract_tags(html)
+    stack = []
+    if len(html) == 0:
+        return True
+    if len(extr) == 0:
+        return False
+    for i, tag in enumerate(extr):
+        if tag[1] != '/':
+            stack.append(tag[1:-1])
+        else:
+            if len(stack) == 0:
+                return False
+            for j in range(len(stack)):
+                if tag[2:-1] == stack[j - 1]:
+                    stack.pop()
+                    break
+    if len(stack) == 0:
+        return True
+    else:
+        return False
+
     # HINT:
     # use the _extract_tags function below to generate a list of html tags without any extra text;
     # then process these html tags using the balanced parentheses algorithm from the class/book
@@ -30,5 +51,5 @@ def _extract_tags(html):
     ['<strong>', '</strong>']
     '''
 
-    tags = re.findall('<[\/a-z]+>', html)
-    return tags
+    return  re.findall('<[\/a-z]+>', html)
+
