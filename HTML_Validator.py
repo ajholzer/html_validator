@@ -2,6 +2,7 @@
 import re
 
 def validate_html(html):
+    
     '''
     This function performs a limited version of html validation by checking whether every opening tag has a corresponding closing tag.
 
@@ -50,6 +51,5 @@ def _extract_tags(html):
     >>> _extract_tags('Python <strong>rocks</strong>!')
     ['<strong>', '</strong>']
     '''
-
-    return  re.findall('<[\/a-z]+>', html)
-
+    
+    return re.findall('<[\/a-z]+>', html)
