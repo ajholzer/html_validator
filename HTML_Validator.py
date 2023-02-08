@@ -53,5 +53,5 @@ def _extract_tags(html):
     ['<strong>', '</strong>']
     '''
 
-    tags = re.findall(r'<[\/a-z]+>', html)
+    tags = re.findall(r'<[\/0-9a-z]+>', html)
     return tags
